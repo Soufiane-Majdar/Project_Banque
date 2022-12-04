@@ -53,6 +53,20 @@ public class Compte {
         setPropriétaire(null);
     }
 
+    public Compte(Double solde, Client propriétaire) {
+        this();
+        setSolde(solde);
+        String mssg = "";
+        if (solde > 0) {
+            mssg = "# Création avec solde initial de " + solde + "DHS";
+        } else {
+            mssg = "# Création sans solde initial.";
+        }
+        setLog(TypeLog.CREATION, mssg);
+        setPropriétaire(propriétaire);
+        propriétaire.getComptesClient().add(this);
+    }
+
     @Override
     public String toString() {
 

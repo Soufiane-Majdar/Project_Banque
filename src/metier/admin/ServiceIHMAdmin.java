@@ -454,7 +454,34 @@ public class ServiceIHMAdmin implements IServiceIHMAdmin{
 
     
     public int menuComptabilite() {
-        // TODO Auto-generated method stub
+        // menuComptabilite
+        System.out.println("\n=============================================");
+        System.out.println("Comptabilité");
+        System.out.println("=============================================");
+        System.out.println("0- Retour");
+        System.out.println("1- calculer Et Afficher Statistiques");
+     
+        System.out.println("=============================================");
+        System.out.println("Votre choix : ");
+        int choix = clavier.nextInt();
+        
+        // cas
+
+        switch (choix) {
+            case 0:
+                menuGlobal();
+                break;
+            case 1:
+                admin.calculerEtAfficherStatistiques();
+                menuComptabilite();
+                break;
+            default:
+                System.out.println("Choix invalide");
+                menuComptabilite();
+                break;
+        }
+        
+
         return 0;
     }
 
