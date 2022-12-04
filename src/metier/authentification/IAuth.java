@@ -2,9 +2,9 @@ package metier.authentification;
 
 public interface IAuth {
 
-    void seConnecter();
+    public void seConnecter();
 
-    void SeDéconnecter();
+    public void SeDéconnecter();
 
 
 }

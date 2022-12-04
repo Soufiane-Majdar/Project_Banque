@@ -11,6 +11,6 @@ public interface IServiceIHMAdmin extends IServiceIHM {
     int menuSuppression();
     int tableauDeBord();
     int menuTrie();
-    int menuComptabilité();
+    int menuComptabilite();
 
 }
