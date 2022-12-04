@@ -115,6 +115,11 @@ public class ServiceAdmin implements IServiceAdmin{
             
      }
 
+     public boolean         supprimerCompte(Long id){
+        return true;
+        
+ }
+     
     public TableauDeBord   calculerEtAfficherStatistiques(){
             TableauDeBord foo = new TableauDeBord();
             return foo;

@@ -25,6 +25,7 @@ public interface IServiceAdmin {
 
     public Client          modifierClient(String filtre);
     public boolean         supprimerClient(Long id);
+    public boolean         supprimerCompte(Long id);
 
     public TableauDeBord   calculerEtAfficherStatistiques();
 
