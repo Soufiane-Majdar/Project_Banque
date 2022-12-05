@@ -1,6 +1,7 @@
 package presentation.modele;
 
 import java.util.*;
+import java.util.regex.*;
 
 
 public class Client extends Utilisateur{
@@ -29,7 +30,15 @@ public class Client extends Utilisateur{
         this.sexe = sexe;
     }
     public void         setEmail(String email) {
-        this.email = email;
+            //Regular Expression
+    String regex = "^(.+)@(.+)$";
+    //Compile regular expression to get the pattern
+    Pattern pattern = Pattern.compile(regex);
+    Matcher matcher = pattern.matcher(email);
+
+
+    if (matcher.matches()) this.email = email;
+    else System.out.println("Email invalide");
     }
     public void         setTel(String tel) {
         this.tel = tel;
