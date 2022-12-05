@@ -85,13 +85,10 @@ public class ServiceAdmin implements IServiceAdmin{
             
      }
     public List<Client>    chercherClientParNom(String nom){ 
-        System.out.println("\n=============================================");
-        System.out.println("Chercher Client Par Nom");
-        System.out.println("nomClient  : ");
-        String nomClient=clavier.next();
+
         List<Client> clients=new ArrayList<>();
         for(Client client:maBanque.getClientsDeBanque()){
-            if(client.getNom().equals(nomClient)){
+            if(client.getNom().equals(nom)){
                 clients.add(client);
             }
         }
@@ -101,13 +98,10 @@ public class ServiceAdmin implements IServiceAdmin{
      }
     
     public List<Client>    chercherClientParPrénom(String prenom){ 
-        System.out.println("\n=============================================");
-        System.out.println("Chercher Client Par Prenom");
-        System.out.println("prenomClient  : ");
-        String prenomClient=clavier.next();
+
         List<Client> clients=new ArrayList<>();
         for(Client client:maBanque.getClientsDeBanque()){
-            if(client.getPrenom().equals(prenomClient)){
+            if(client.getPrenom().equals(prenom)){
                 clients.add(client);
             }
         }
@@ -116,12 +110,8 @@ public class ServiceAdmin implements IServiceAdmin{
       
      }
     public Client          chercherClientParCin(String cin){
-        System.out.println("\n=============================================");
-        System.out.println("Chercher Client Par CIN");
-        System.out.println("cinClient  : ");
-        String cinClient=clavier.next();
         for(Client client:maBanque.getClientsDeBanque()){
-            if(client.getCin().equals(cinClient)){
+            if(client.getCin().equals(cin)){
                 return client;
             }
         }
@@ -131,12 +121,9 @@ public class ServiceAdmin implements IServiceAdmin{
             
      }
     public Client          chercherClientParEmail(String email){
-        System.out.println("\n=============================================");
-        System.out.println("Chercher Client Par Email");
-        System.out.println("emailClient  : ");
-        String emailClient=clavier.next();
+
         for(Client client:maBanque.getClientsDeBanque()){
-            if(client.getEmail().equals(emailClient)){
+            if(client.getEmail().equals(email)){
                 return client;
             }
         }
@@ -147,13 +134,9 @@ public class ServiceAdmin implements IServiceAdmin{
      }
 
     public Compte          chercherCompteParId(Long idCompte){
-        System.out.println("\n=============================================");
-        System.out.println("Chercher Compte Par Id");
-        System.out.println("Numero Compte  : ");
-        Long idCompteClient=clavier.nextLong();
         for(Client client:maBanque.getClientsDeBanque()){
             for(Compte compte:client.getComptesClient()){
-                if(compte.getNumeroCompte().equals(idCompteClient)){
+                if(compte.getNumeroCompte().equals(idCompte)){
                     return compte;
                 }
             }
@@ -165,14 +148,11 @@ public class ServiceAdmin implements IServiceAdmin{
      }
 
     public List<Compte>    chercherCompteParSolde(double solde){
-        System.out.println("\n=============================================");
-        System.out.println("Chercher Compte Par Solde");
-        System.out.println("Solde Compte  : ");
-        double soldeCompte=clavier.nextDouble();
+
         List<Compte> comptes=new ArrayList<>();
         for(Client client:maBanque.getClientsDeBanque()){
             for(Compte compte:client.getComptesClient()){
-                if(compte.getSolde().equals(soldeCompte)){
+                if(compte.getSolde().equals(solde)){
                     comptes.add(compte);
                 }
             }
@@ -185,14 +165,11 @@ public class ServiceAdmin implements IServiceAdmin{
      }
 
     public List<Compte>    chercherCompteParDateCreation(LocalDateTime date){
-        System.out.println("\n=============================================");
-        System.out.println("Chercher Compte Par Date Creation");
-        System.out.println("Date Creation Compte  : ");
-        LocalDateTime dateCreationCompte=LocalDateTime.parse(clavier.next());
+
         List<Compte> comptes=new ArrayList<>();
         for(Client client:maBanque.getClientsDeBanque()){
             for(Compte compte:client.getComptesClient()){
-                if(compte.getDateCreation().equals(dateCreationCompte)){
+                if(compte.getDateCreation().equals(date)){
                     comptes.add(compte);
                 }
             }

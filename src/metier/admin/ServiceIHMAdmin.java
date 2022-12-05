@@ -33,7 +33,7 @@ public class ServiceIHMAdmin implements IServiceIHMAdmin{
         System.out.println("5- Suppression");
         System.out.println("6- Trie");
         System.out.println("7- Comptabilité");
-
+        System.out.println("8- Logout");
         System.out.println("=============================================");
         System.out.println("Votre choix : ");
         int choix = clavier.nextInt();
@@ -70,6 +70,9 @@ public class ServiceIHMAdmin implements IServiceIHMAdmin{
             case 7:
                 menuComptabilite();
                 menuGlobal();
+                break;
+            case 8:
+                System.out.println("Au revoir");
                 break;
             default:
                 System.out.println("Choix invalide");
@@ -149,49 +152,64 @@ public class ServiceIHMAdmin implements IServiceIHMAdmin{
             // get id from scaner 
                 System.out.println("ID : ");
                 long id = clavier.nextInt();
-                admin.chercherClientParId(id);
+                System.out.println(admin.chercherClientParId(id).toString());;
                 menuRecherche();
                 break;
             case 2:
-                System.out.println("Nom : ");
-                String nom = clavier.next();
-                admin.chercherClientParNom(nom);
+                System.out.println("\n=============================================");
+                System.out.println("Chercher Client Par Nom");
+                System.out.println("nomClient  : ");
+                String nom=clavier.next();
+                System.out.println(admin.chercherClientParNom(nom).toString());;
                 menuRecherche();
                 break;
             case 3:
-                System.out.println("Prénom : ");
-                String prenom = clavier.next();
-                admin.chercherClientParPrénom(prenom);
+                System.out.println("\n=============================================");
+                System.out.println("Chercher Client Par Prenom");
+                System.out.println("prenomClient  : ");
+                String prenom=clavier.next();
+                System.out.println(admin.chercherClientParPrénom(prenom).toString());;
                 menuRecherche();
                 break;
             case 4:
-                System.out.println("Email : ");
-                String email = clavier.next();
-                admin.chercherClientParEmail(email);
+                System.out.println("\n=============================================");
+                System.out.println("Chercher Client Par Email");
+                System.out.println("emailClient  : ");
+                String email=clavier.next();
+                System.out.println(admin.chercherClientParEmail(email).toString());;
                 menuRecherche();
                 break;
             case 5:
-                System.out.println("CIN : ");
-                String cin = clavier.next();
-                admin.chercherClientParCin(cin);
+                System.out.println("\n=============================================");
+                System.out.println("Chercher Client Par CIN");
+                System.out.println("cinClient  : ");
+                String cin=clavier.next();
+                System.out.println(admin.chercherClientParCin(cin).toString());;
                 menuRecherche();
                 break;
             case 6:
-                System.out.println("Solde : ");
-                double solde = clavier.nextDouble();
-                admin.chercherCompteParSolde(solde);
+                System.out.println("\n=============================================");
+                System.out.println("Chercher Compte Par Solde");
+                System.out.println("Solde Compte  : ");
+                double solde=clavier.nextDouble();
+                System.out.println(admin.chercherCompteParSolde(solde).toString());;
                 menuRecherche();
                 break;
             case 7:
-                System.out.println("ID : ");
-                long idCompte = clavier.nextInt();
-                admin.chercherCompteParId(idCompte);
+                System.out.println("\n=============================================");
+                System.out.println("Chercher Compte Par Id");
+                System.out.println("Numero Compte  : ");
+                Long idCompte=clavier.nextLong();
+                System.out.println(admin.chercherCompteParId(idCompte).toString());;
                 menuRecherche();
                 break;
             case 8:
-                System.out.println("Date de création : ");
+                System.out.println("\n=============================================");
+                System.out.println("Chercher Compte Par Date Creation");
+                System.out.println("Date Creation Compte  : ");
+                String date=clavier.next();
                 try {
-                    LocalDateTime dateCreation = LocalDateTime.parse(clavier.next());
+                    LocalDateTime dateCreation = LocalDateTime.parse(date);
                     admin.chercherCompteParDateCreation(dateCreation);
                     menuRecherche();
                 } catch (Exception e) {
@@ -480,7 +498,7 @@ public class ServiceIHMAdmin implements IServiceIHMAdmin{
                 menuComptabilite();
                 break;
         }
-        
+
 
         return 0;
     }
