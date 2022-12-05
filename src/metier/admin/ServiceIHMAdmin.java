@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
+import static presentation.controleur.MaBanque.loginService;
+
 public class ServiceIHMAdmin implements IServiceIHMAdmin{
 
 
@@ -72,7 +74,7 @@ public class ServiceIHMAdmin implements IServiceIHMAdmin{
                 menuGlobal();
                 break;
             case 8:
-                System.out.println("Au revoir");
+                loginService.SeDéconnecter();
                 break;
             default:
                 System.out.println("Choix invalide");

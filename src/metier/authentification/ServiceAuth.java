@@ -4,6 +4,7 @@ import metier.admin.ServiceIHMAdmin;
 import metier.clients.ServiceIHMClient;
 import presentation.modele.Admin;
 import presentation.modele.Banque;
+import presentation.modele.Client;
 import presentation.modele.Utilisateur;
 
 import java.util.Scanner;
@@ -12,6 +13,7 @@ public class ServiceAuth implements IAuth{
 
     private Banque maBanque;
     private Scanner clavier;
+    Client LogedClient;
 
     public ServiceAuth(Banque maBanque, Scanner clavier) {
         this.maBanque = maBanque;
@@ -23,9 +25,9 @@ public class ServiceAuth implements IAuth{
     public void seConnecter() {
         System.out.println("Bienvenue dans la banque " + maBanque.getNomBanque());
         System.out.println("Veuillez saisir votre login : ");
-        String login = clavier.nextLine();
+        String login = clavier.next();
         System.out.println("Veuillez saisir votre mot de passe : ");
-        String password = clavier.nextLine();
+        String password = clavier.next();
 
         Utilisateur admin = Admin.getInstance();
         if(admin.getLogin().equals(login) && admin.getMotDePasse().equals(password)){
@@ -40,7 +42,8 @@ public class ServiceAuth implements IAuth{
             if(client.getLogin().equals(login) && client.getMotDePasse().equals(password)){
                 System.out.println("Bienvenue " + client.getNom() + " " + client.getPrenom());
                 // got to menu client
-                ServiceIHMClient IHMClient=new ServiceIHMClient(maBanque, clavier,(presentation.modele.Client) client);
+                LogedClient=(presentation.modele.Client) client;
+                ServiceIHMClient IHMClient=new ServiceIHMClient(maBanque, clavier,LogedClient);
                 IHMClient.menuGlobal();
 
             }
@@ -50,8 +53,10 @@ public class ServiceAuth implements IAuth{
 
 
     public void SeDéconnecter() {
-        
-    }
+		System.out.println("##############################  DÉCONNEXION AVCE SUCCES  ###############################");
+		seConnecter();
+	}
+    
 
     
 }

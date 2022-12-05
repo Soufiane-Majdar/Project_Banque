@@ -7,6 +7,9 @@ import presentation.modele.TableauDeBord;
 
 import java.time.LocalDateTime;
 import java.util.*;
+
+import static presentation.controleur.MaBanque.loginService;
+
 public class ServiceIHMClient implements IServiceIHMClient{
     
     private Banque maBanque;
@@ -56,6 +59,7 @@ public class ServiceIHMClient implements IServiceIHMClient{
                     menuGlobal();
                     break;
                 case 4:
+                    loginService.SeDéconnecter();
                     return 0;
                 default:
                     System.out.println("Choix invalide");
